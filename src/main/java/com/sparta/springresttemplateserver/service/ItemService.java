@@ -25,7 +25,7 @@ public class ItemService {
             // item.getTitle() : 고정되어 있는 데이터 가지고 온다.( Mac, iPad...)
             // 우리가 받아온 query 랑 비교한다.
             if(item.getTitle().equals(query)) {
-                // 해당하는 item 객체 하나를 return 한다.
+                // 일치하는 item 객체를 하나 뽑아서 return 한다.
                 return item;
             }
         }
@@ -40,8 +40,12 @@ public class ItemService {
         return responseDto;
     }
 
-    public Item postCall(String query, UserRequestDto requestDto) {
-        return null;
+    public Item postCall(String query, UserRequestDto userRequestDto) {
+        System.out.println("userRequestDto.getUsername() = " + userRequestDto.getUsername());
+        System.out.println("userRequestDto.getPassword() = " + userRequestDto.getPassword());
+
+        // 받아온 query 로 item 하나 가지고 와야함
+        return getCallObject(query);
     }
 
     public ItemResponseDto exchangeCall(String token, UserRequestDto requestDto) {
